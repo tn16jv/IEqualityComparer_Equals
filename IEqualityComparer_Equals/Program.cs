@@ -26,6 +26,7 @@ class Box
     }
 
     // GetHashCode() is typically used in HashSet and Dictionary, along with LINQ operations like Distinct() and Group()
+    // Note: 2 objects that are equal have the same hash code, but 2 hash codes that are equal don't mean the objects are the same
     public override int GetHashCode()
     {
         return Height.GetHashCode();
@@ -50,6 +51,7 @@ class BoxEqualityComparer : IEqualityComparer<Box>
     }
 
     // GetHashCode() is typically used in HashSet and Dictionary, along with LINQ operations like Distinct() and Group().
+    // Note: 2 objects that are equal have the same hash code, but 2 hash codes that are equal don't mean the objects are the same
     public int GetHashCode(Box box)
     {
         int hashHeight = box.Height == null ? 0 : box.Height.GetHashCode();
